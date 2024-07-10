@@ -1,7 +1,12 @@
 include:
   - remote: "https://gitlab.freedesktop.org/freedesktop/ci-templates/-/raw/b61a03cabbf308e81289f7aaaf0b5a80a34ffb99/templates/fedora.yml"
 
+stages:
+  - build
+  - release
+
 build:
+  stage: build
   before_script:
     - dnf install python3-pip wget unzip -y
     - pip3 install --break-system-packages opentype-feature-freezer
@@ -10,6 +15,18 @@ build:
   script:
     - unzip Inter-4.0.zip
     - pyftfeatfreeze --features "ss04" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
+  after_script:
+    - echo "${CI_JOB_ID}" > CI_JOB_ID.txt
   artifacts:
     paths:
       - GNOMEUI.ttf
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - |
+      release-cli create --name "$CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG \
+        --assets-link "{\"name\":\"Executable file\",\"url\":\"https:https://gitlab.gnome.org/monster/gnome-ui-font/-/jobs/`cat CI_JOB_ID.txt`/artifacts/file/GNOMEUI.ttf\"}"
+  rules:
+    - if: $CI_COMMIT_TAG
