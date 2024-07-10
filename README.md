@@ -17,6 +17,11 @@ unzip Inter-4.0.zip -d Inter-4.0
 cd Inter-4.0
 pyftfeatfreeze --features "ss04" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
 mkdir ~/.local/share/fonts && mv GNOMEUI.tff ~/.local/share/fonts
+```
+
+### Setting the Font
+
+```sh
 gsettings set org.gnome.desktop.interface font-name "GNOME UI 11"
 gsettings set org.gnome.desktop.interface document-font-name "GNOME UI 11"
 ```
