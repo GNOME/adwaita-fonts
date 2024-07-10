@@ -4,6 +4,10 @@ This repository contains the CI file used to build GNOME UI, an [Inter](https://
 
 ## Getting the Font
 
+### From Release
+
+The latest stable version can be downloaded from [here](https://gitlab.gnome.org/monster/gnome-ui-font/-/releases/permalink/latest).
+
 ### Installing Manually
 
 Dependences:
