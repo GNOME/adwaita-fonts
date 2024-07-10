@@ -28,6 +28,6 @@ release:
   script:
     - |
       release-cli create --name "$CI_COMMIT_TAG" --tag-name $CI_COMMIT_TAG \
-        --assets-link "{\"name\":\"Font\",\"url\":\"https://gitlab.gnome.org/monster/gnome-ui-font/-/jobs/`cat CI_JOB_ID.txt`/artifacts/file/GNOMEUI.ttf\"}"
+        --assets-link "{\"name\":\"GNOMEUI.ttf\",\"url\":\"https://gitlab.gnome.org/monster/gnome-ui-font/-/jobs/`cat CI_JOB_ID.txt`/artifacts/file/GNOMEUI.ttf\"}"
   rules:
     - if: $CI_COMMIT_TAG
