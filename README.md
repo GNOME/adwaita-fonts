@@ -19,7 +19,7 @@ Dependencies:
 wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
 unzip Inter-4.0.zip -d Inter-4.0
 cd Inter-4.0
-pyftfeatfreeze --features "ss04" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
+pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
 mkdir ~/.local/share/fonts && mv GNOMEUI.tff ~/.local/share/fonts
 ```
 
