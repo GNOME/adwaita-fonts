@@ -1,14 +1,14 @@
 # GNOME UI Font
 
-This repository contains the CI file used to build GNOME UI, an [Inter](https://rsms.me/inter/) based font.
+This repository contains the CI file used to build the GNOME UI font, a variation of [Inter](https://rsms.me/inter/).
 
 ## Getting the Font
 
-### From Release
+### Prebuilt
 
-The latest stable version can be downloaded [here](https://gitlab.gnome.org/monster/gnome-ui-font/-/releases/permalink/latest).
+The latest version can be downloaded [here](https://gitlab.gnome.org/monster/gnome-ui-font/-/pipelines).
 
-### Installing Manually
+### Generating Manually
 
 Dependencies:
 - `wget`
