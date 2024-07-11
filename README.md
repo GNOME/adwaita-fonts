@@ -6,7 +6,7 @@ This repository contains the CI file used to build the GNOME UI font, a variatio
 
 ### Prebuilt
 
-The latest version can be downloaded [here](https://gitlab.gnome.org/monster/gnome-ui-font/-/pipelines).
+The latest version can be downloaded [here](https://gitlab.gnome.org/GNOME/gnome-ui-font/-/pipelines).
 
 ### Generating Manually
 
