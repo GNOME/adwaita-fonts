@@ -12,7 +12,7 @@ generate:
     - wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
     - if $( ! echo "ff970a5d4561a04f102a7cb781adbd6ac4e9b6c460914c7a101f15acb7f7d1a4 Inter-4.0.zip" | sha256sum --check --status ); then exit 1; fi
     - unzip Inter-4.0.zip
-    - pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
+    - pyftfeatfreeze --features "cv05,case" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
   artifacts:
     paths:
       - GNOMEUI.ttf
