@@ -6,7 +6,7 @@ This repository contains the CI file used to build the GNOME UI font, a variatio
 
 ### Prebuilt
 
-The latest version can be downloaded [here](https://gitlab.gnome.org/GNOME/gnome-ui-font/-/pipelines). Install it by double clicking on the .ttf file and clicking on the install button.
+The latest version can be downloaded [here](https://gitlab.gnome.org/GNOME/gnome-ui-font/-/pipelines). Install it by double clicking on the .ttf files and clicking on the install button.
 
 ### Generating Manually
 
@@ -20,7 +20,8 @@ wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
 unzip Inter-4.0.zip -d Inter-4.0
 cd Inter-4.0
 pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/GNOME UI" InterVariable.ttf GNOMEUI.ttf
-mkdir -p ~/.local/share/fonts && mv GNOMEUI.tff ~/.local/share/fonts
+pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/GNOME UI" InterVariable-Italic.ttf GNOMEUI-Italic.ttf
+mkdir -p ~/.local/share/fonts && mv -t ~/.local/share/fonts GNOMEUI.tff GNOMEUI-Italic.tff
 ```
 
 ### Setting the Font
