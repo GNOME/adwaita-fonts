@@ -8,7 +8,7 @@ generate:
   stage: generate
   script:
     - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
-    - pip install --root-user-action opentype-feature-freezer
+    - pip install --root-user-action ignore opentype-feature-freezer
     - wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
     - make
   artifacts:
