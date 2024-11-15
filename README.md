@@ -12,12 +12,10 @@ The latest version can be downloaded [here](https://gitlab.gnome.org/GNOME/gnome
 
 ```sh
 gsettings set org.gnome.desktop.interface font-name "GNOME UI 11"
-gsettings set org.gnome.desktop.interface document-font-name "GNOME UI 11"
 ```
 
 ### Resetting Font
 
 ```sh
 gsettings reset org.gnome.desktop.interface font-name
-gsettings reset org.gnome.desktop.interface document-font-name
 ```
