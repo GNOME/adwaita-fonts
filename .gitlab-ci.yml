@@ -13,5 +13,5 @@ generate:
     - make
   artifacts:
     paths:
-      - GNOMEUI.ttf
-      - GNOMEUI-Italic.ttf
+      - AdwaitaSans.ttf
+      - AdwaitaSans-Italic.ttf
