@@ -16,7 +16,7 @@ AdwaitaSans-Italic.ttf: inter
 	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable-Italic.ttf AdwaitaSans-Italic.ttf
 
 install: AdwaitaSans.ttf AdwaitaSans-Italic.ttf
-	install -Dm655 -t "$(DESTDIR)/$(PREFIX)/share/fonts/adwaita" AdwaitaSans*.ttf
+	install -Dm655 -t "$(DESTDIR)/$(PREFIX)/share/fonts/Adwaita" AdwaitaSans*.ttf
 
 clean:
 	rm *.ttf
