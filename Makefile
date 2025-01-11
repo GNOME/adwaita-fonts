@@ -9,10 +9,10 @@ inter:
 	echo "$(INTER_SHA256) $(INTER_FILENAME)" | sha256sum --check --status
 	unzip -o $(INTER_FILENAME) InterVariable.ttf InterVariable-Italic.ttf
 
-GNOMEUI.ttf: inter
+AdwaitaSans.ttf: inter
 	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable.ttf AdwaitaSans.ttf
 
-GNOMEUI-Italic.ttf: inter
+AdwaitaSans-Italic.ttf: inter
 	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable-Italic.ttf AdwaitaSans-Italic.ttf
 
 install: AdwaitaSans.ttf AdwaitaSans-Italic.ttf
