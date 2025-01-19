@@ -2,21 +2,28 @@ include:
   - remote: "https://gitlab.gnome.org/Infrastructure/freedesktop-ci-templates/-/raw/e195d80f35b45cc73668be3767b923fd76c70ed5/templates/fedora.yml"
 
 stages:
-  - generate
+  - sans
+  - mono
 
 generate:
-  stage: generate
+  before_script:
+    - dnf install -y --setopt=install_weak_deps=False python3-pip nodejs wget unzip make ttfautohint
+  stage: sans
   script:
-    - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
     - pip install --root-user-action ignore opentype-feature-freezer
     - wget https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip
-    - wget https://github.com/be5invis/Iosevka/releases/download/v32.4.0/PkgTTF-IosevkaFixedSS04-32.4.0.zip
-    - make
+    - make sans
   artifacts:
     paths:
-      - AdwaitaSans.ttf
+      - AdwaitaSans-Regular.ttf
       - AdwaitaSans-Italic.ttf
-      - AdwaitaMono.ttf
+  stage: mono
+  script:
+    - wget https://github.com/be5invis/Iosevka/archive/refs/tags/v32.4.0.zip
+    - make mono
+  artifacts:
+    paths:
+      - AdwaitaMono-Regular.ttf
       - AdwaitaMono-Italic.ttf
       - AdwaitaMono-Bold.ttf
       - AdwaitaMono-BoldItalic.ttf
