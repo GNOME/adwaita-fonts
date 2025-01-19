@@ -12,43 +12,35 @@ MONO_FONT_FILENAMES=IosevkaFixedSS04-Extended.ttf \
 	IosevkaFixedSS04-ExtendedBold.ttf \
 	IosevkaFixedSS04-ExtendedBoldItalic.ttf
 
+
 ADWAITA_FONT_FILENAMES=AdwaitaSans.ttf \
-	AdwaitaSans-Italic.ttf \
-	AdwaitaMono.ttf \
+	AdwaitaSans-Italic.ttf
+
+ADWAITA_MONO_FONT_FILENAMES=AdwaitaMono.ttf
 	AdwaitaMono-Italic.ttf \
 	AdwaitaMono-Bold.ttf \
 	AdwaitaMono-BoldItalic.ttf
 
-all: $(ADWAITA_FONT_FILENAMES)
+all: $(ADWAITA_FONT_FILENAMES) $(ADWAITA_MONO_FONT_FILENAMES)
 
-sans:
+
+$(SANS_FONT_FILENAMES):
 	echo "$(SANS_SHA256) $(SANS_ARCHIVE)" | sha256sum --check --status
-	unzip -o $(SANS_ARCHIVE) $(SANS_FONT_FILENAMES)
+	unzip -o $(SANS_ARCHIVE) $@
 
-AdwaitaSans.ttf: sans
-	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable.ttf $@
-
-AdwaitaSans-Italic.ttf: sans
-	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable-Italic.ttf $@
-
-mono:
+$(MONO_FONT_FILENAMES):
 	echo "$(MONO_SHA256) $(MONO_ARCHIVE)" | sha256sum --check --status
-	unzip -o $(MONO_ARCHIVE) $(MONO_FONT_FILENAMES)
+	unzip -o $(MONO_ARCHIVE) $@
 
-AdwaitaMono.ttf: mono
-	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" IosevkaFixedSS04-Extended.ttf $@
+$(ADWAITA_FONT_FILENAMES): %.ttf: $(SANS_FONT_FILENAMES)
+	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" $< $@
 
-AdwaitaMono-Italic.ttf: mono
-	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" IosevkaFixedSS04-ExtendedItalic.ttf $@
+$(ADWAITA_MONO_FONT_FILENAMES): %.ttf: $(MONO_FONT_FILENAMES)
+	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" $< $@
 
-AdwaitaMono-Bold.ttf: mono
-	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" IosevkaFixedSS04-ExtendedBold.ttf $@
-
-AdwaitaMono-BoldItalic.ttf: mono
-	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" IosevkaFixedSS04-ExtendedBoldItalic.ttf $@
-
-install: $(ADWAITA_FONT_FILENAMES)
+install: $(ADWAITA_FONT_FILENAMES) $(ADWAITA_MONO_FONT_FILENAMES)
 	install -Dm655 -t "$(DESTDIR)/$(PREFIX)/share/fonts/Adwaita" $(ADWAITA_FONT_FILENAMES)
+	install -Dm655 -t "$(DESTDIR)/$(PREFIX)/share/fonts/Adwaita" $(ADWAITA_MONO_FONT_FILENAMES)
 
 clean:
 	rm *.ttf
