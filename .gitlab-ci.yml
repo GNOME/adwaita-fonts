@@ -20,9 +20,12 @@ sans:
 mono:
   stage: build
   before_script:
-    - dnf install -y --setopt=install_weak_deps=False nodejs-npm ttfautohint wget unzip make
+    - dnf install -y --setopt=install_weak_deps=False nodejs-npm ttfautohint make git
+    - git submodule update --init --depth 1
   script:
-    - wget https://github.com/be5invis/Iosevka/archive/refs/tags/v32.4.0.zip
+    - cd Iosevka
+    - npm install
+    - cd ..
     - make mono
   artifacts:
     paths:
