@@ -18,7 +18,7 @@ all: $(ADWAITA_FONT_FILENAMES)
 
 sans:
 	echo "$(SANS_SHA256) $(SANS_ARCHIVE)" | sha256sum --check --status
-	unzip -o $(SANS_FILENAME) $(SANS_FONT_FILENAMES)
+	unzip -o $(SANS_ARCHIVE) $(SANS_FONT_FILENAMES)
 
 AdwaitaSans.ttf: sans
 	pyftfeatfreeze --features "cv05" --replacenames "Inter Variable/Adwaita Sans" InterVariable.ttf $@
@@ -28,7 +28,7 @@ AdwaitaSans-Italic.ttf: sans
 
 mono:
 	echo "$(MONO_SHA256) $(MONO_ARCHIVE)" | sha256sum --check --status
-	unzip -o $(MONO_FILENAME) $(MONO_FONT_FILENAMES)
+	unzip -o $(MONO_ARCHIVE) $(MONO_FONT_FILENAMES)
 
 AdwaitaMono.ttf: mono
 	pyftfeatfreeze --replacenames "Iosevka Fixed SS04/Adwaita Mono" IosevkaFixedSS04-Extended.ttf $@
