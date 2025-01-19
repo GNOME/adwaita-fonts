@@ -6,9 +6,9 @@ stages:
   - mono
 
 generate:
-  before_script:
-    - dnf install -y --setopt=install_weak_deps=False python3-pip nodejs-npm wget unzip make ttfautohint
   stage: sans
+  before_script:
+    - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
   script:
     - pip install --root-user-action ignore opentype-feature-freezer
     - wget https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip
@@ -18,6 +18,8 @@ generate:
       - AdwaitaSans-Regular.ttf
       - AdwaitaSans-Italic.ttf
   stage: mono
+  before_script:
+    - dnf install -y --setopt=install_weak_deps=False nodejs-npm ttfautohint wget unzip make
   script:
     - wget https://github.com/be5invis/Iosevka/archive/refs/tags/v32.4.0.zip
     - make mono
