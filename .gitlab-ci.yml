@@ -7,7 +7,7 @@ stages:
 
 generate:
   before_script:
-    - dnf install -y --setopt=install_weak_deps=False python3-pip nodejs wget unzip make ttfautohint
+    - dnf install -y --setopt=install_weak_deps=False python3-pip nodejs-npm wget unzip make ttfautohint
   stage: sans
   script:
     - pip install --root-user-action ignore opentype-feature-freezer
