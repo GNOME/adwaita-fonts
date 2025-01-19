@@ -12,7 +12,12 @@ MONO_FONT_FILENAMES=IosevkaFixedSS04-Extended.ttf \
 	IosevkaFixedSS04-ExtendedBold.ttf \
 	IosevkaFixedSS04-ExtendedBoldItalic.ttf
 
-ADWAITA_FONT_FILENAMES=AdwaitaSans.ttf AdwaitaSans-Italic.ttf
+ADWAITA_FONT_FILENAMES=AdwaitaSans.ttf \
+	AdwaitaSans-Italic.ttf \
+	AdwaitaMono.ttf \
+	AdwaitaMono-Italic.ttf \
+	AdwaitaMono-Bold.ttf \
+	AdwaitaMono-BoldItalic.ttf
 
 all: $(ADWAITA_FONT_FILENAMES)
 
