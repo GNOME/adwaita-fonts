@@ -10,8 +10,13 @@ generate:
     - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
     - pip install --root-user-action ignore opentype-feature-freezer
     - wget https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip
+    - wget https://github.com/be5invis/Iosevka/releases/download/v32.4.0/PkgTTF-IosevkaFixedSS04-32.4.0.zip
     - make
   artifacts:
     paths:
       - AdwaitaSans.ttf
       - AdwaitaSans-Italic.ttf
+      - AdwaitaMono.ttf
+      - AdwaitaMono-Italic.ttf
+      - AdwaitaMono-Bold.ttf
+      - AdwaitaMono-BoldItalic.ttf
