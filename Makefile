@@ -16,7 +16,7 @@ MONO_FONT_FILENAMES=IosevkaFixedSS04-Extended.ttf \
 ADWAITA_FONT_FILENAMES=AdwaitaSans.ttf \
 	AdwaitaSans-Italic.ttf
 
-ADWAITA_MONO_FONT_FILENAMES=AdwaitaMono.ttf
+ADWAITA_MONO_FONT_FILENAMES=AdwaitaMono.ttf \
 	AdwaitaMono-Italic.ttf \
 	AdwaitaMono-Bold.ttf \
 	AdwaitaMono-BoldItalic.ttf
