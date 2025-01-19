@@ -2,11 +2,10 @@ include:
   - remote: "https://gitlab.gnome.org/Infrastructure/freedesktop-ci-templates/-/raw/e195d80f35b45cc73668be3767b923fd76c70ed5/templates/fedora.yml"
 
 stages:
-  - sans
-  - mono
+  - build
 
-generate:
-  stage: sans
+sans:
+  stage: build
   before_script:
     - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
   script:
@@ -17,7 +16,9 @@ generate:
     paths:
       - AdwaitaSans-Regular.ttf
       - AdwaitaSans-Italic.ttf
-  stage: mono
+
+mono:
+  stage: build
   before_script:
     - dnf install -y --setopt=install_weak_deps=False nodejs-npm ttfautohint wget unzip make
   script:
