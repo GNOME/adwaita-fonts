@@ -1,5 +1,5 @@
 <!--
-Do not report issues with the font itself,
+Do not report issues with the fonts themselves,
 this repository is only for building external fonts.
 
 You can report issues at the corresponding issue trackers:
