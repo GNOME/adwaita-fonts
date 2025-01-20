@@ -11,11 +11,12 @@ sans:
   script:
     - pip install --root-user-action ignore opentype-feature-freezer
     - wget https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip
+    - mv Inter-4.1.zip sans
     - make sans
   artifacts:
     paths:
-      - AdwaitaSans-Regular.ttf
-      - AdwaitaSans-Italic.ttf
+      - sans/AdwaitaSans-Regular.ttf
+      - sans/AdwaitaSans-Italic.ttf
 
 mono:
   stage: build
@@ -23,13 +24,11 @@ mono:
     - dnf install -y --setopt=install_weak_deps=False nodejs-npm ttfautohint make git
     - git submodule update --init --depth 1
   script:
-    - cd Iosevka
-    - npm install
-    - cd ..
+    - npm install --prefix mono/Iosevka
     - make mono
   artifacts:
     paths:
-      - AdwaitaMono-Regular.ttf
-      - AdwaitaMono-Italic.ttf
-      - AdwaitaMono-Bold.ttf
-      - AdwaitaMono-BoldItalic.ttf
+      - mono/AdwaitaMono-Regular.ttf
+      - mono/AdwaitaMono-Italic.ttf
+      - mono/AdwaitaMono-Bold.ttf
+      - mono/AdwaitaMono-BoldItalic.ttf
