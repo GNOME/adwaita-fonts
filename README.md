@@ -1,5 +1,7 @@
 # Adwaita Fonts
 
+![](preview.png)
+
 This repository contains the Makefile used to build Adwaita Sans,
 a variation of [Inter](https://rsms.me/inter/), and Adwaita Mono,
 [Iosevka](https://typeof.net/Iosevka/) customized to match Inter.
