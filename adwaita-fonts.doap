@@ -5,14 +5,10 @@
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
 
-  <name>Adwaita Fonts</name>
+  <name xml:lang="en">Adwaita Fonts</name>
   <shortdesc xml:lang="en">The typefaces for GNOME</shortdesc>
-  <description xml:lang="en">
-The sans and monospace fonts used in GNOME.
-  </description>
 
   <homepage rdf:resource="https://gitlab.gnome.org/GNOME/adwaita-fonts" />
-  <download-page rdf:resource="https://gitlab.gnome.org/GNOME/adwaita-fonts" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/adwaita-fonts/-/issues" />
 
   <maintainer>
@@ -20,12 +16,6 @@ The sans and monospace fonts used in GNOME.
       <foaf:name>Jamie Gravendeel</foaf:name>
       <foaf:mbox rdf:resource="mailto:me@jamie.garden" />
       <gnome:userid>jamieg</gnome:userid>
-      <foaf:account>
-        <foaf:OnlineAccount>
-          <foaf:accountServiceHomepage rdf:resource="https://gitlab.gnome.org"/>
-          <foaf:accountName>monster</foaf:accountName>
-        </foaf:OnlineAccount>
-      </foaf:account>
     </foaf:Person>
   </maintainer>
 
