@@ -1,11 +1,19 @@
 include:
   - remote: "https://gitlab.gnome.org/Infrastructure/freedesktop-ci-templates/-/raw/e195d80f35b45cc73668be3767b923fd76c70ed5/templates/fedora.yml"
+  - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+    inputs:
+      job-stage: release
+      dist-job-name: build-release-tarball
+      tarball-artifact-path: "${TARBALL_ARTIFACT_PATH}"
 
 stages:
   - build
+  - release
 
 variables:
   INTER_VERSION: 4.1
+  TARBALL_ARTIFACT_PATH: "${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz"
+
 sans:
   stage: build
   before_script:
@@ -34,3 +42,23 @@ mono:
       - mono/AdwaitaMono-Italic.ttf
       - mono/AdwaitaMono-Bold.ttf
       - mono/AdwaitaMono-BoldItalic.ttf
+
+build-release-tarball:
+  stage: build
+  before_script:
+    - dnf install -y --setopt=install_weak_deps=False python3-pip nodejs-npm wget unzip make ttfautohint git
+    - git submodule update --init
+    - cd mono/Iosevka
+    - git checkout a5d26cb87836c7245dcae2c741663017245cdd18
+    - cd -
+  script:
+    - pip install --root-user-action ignore opentype-feature-freezer
+    - wget https://github.com/rsms/inter/releases/download/v${INTER_VERSION}/Inter-${INTER_VERSION}.zip
+    - mv Inter-${INTER_VERSION}.zip sans
+    - npm install --prefix mono/Iosevka
+    - make
+  artifacts:
+    name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "${TARBALL_ARTIFACT_PATH}"
