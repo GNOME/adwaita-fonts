@@ -1,11 +1,19 @@
 include:
-  - remote: "https://gitlab.gnome.org/Infrastructure/freedesktop-ci-templates/-/raw/e195d80f35b45cc73668be3767b923fd76c70ed5/templates/fedora.yml"
+  - remote: https://gitlab.gnome.org/Infrastructure/freedesktop-ci-templates/-/raw/e195d80f35b45cc73668be3767b923fd76c70ed5/templates/fedora.yml
+  - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+    inputs:
+      job-stage: release
+      dist-job-name: release
+      tarball-artifact-path: ${TARBALL_ARTIFACT_PATH}
 
 stages:
   - build
+  - release
 
 variables:
   INTER_VERSION: 4.1
+  TARBALL_ARTIFACT_PATH: ${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz
+
 sans:
   stage: build
   before_script:
@@ -34,3 +42,16 @@ mono:
       - mono/AdwaitaMono-Italic.ttf
       - mono/AdwaitaMono-Bold.ttf
       - mono/AdwaitaMono-BoldItalic.ttf
+
+release:
+  stage: release
+  needs:
+    - sans
+    - mono
+  script:
+    - tar -cJf ${TARBALL_ARTIFACT_PATH} sans/AdwaitaSans-* sans/LICENSE.md mono/AdwaitaMono-* mono/LICENSE.md
+  artifacts:
+    name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}
+    when: always
+    paths:
+      - ${TARBALL_ARTIFACT_PATH}
