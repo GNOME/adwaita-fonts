@@ -10,7 +10,9 @@ a variation of [Inter](https://rsms.me/inter/), and Adwaita Mono,
 
 ### Prebuilt
 
-You can download the latest build of the fonts [here](https://gitlab.gnome.org/GNOME/adwaita-fonts/-/pipelines). Install them by opening the .ttf files and clicking on “Install”.
+You can download the latest builds of the fonts
+[here](https://gitlab.gnome.org/GNOME/adwaita-fonts/-/pipelines).
+Install them by opening the .ttf files and clicking on “Install”.
 
 ### Setting the Fonts
 
