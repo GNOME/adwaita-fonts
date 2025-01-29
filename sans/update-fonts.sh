@@ -25,5 +25,14 @@ extract_fonts() {
   unzip -o ${ARCHIVE} InterVariable.ttf InterVariable-Italic.ttf
 }
 
+build_font() {
+  pyftfeatfreeze \
+    --features "cv05" \
+    --replacenames "Inter Variable/Adwaita Sans" \
+    "${1}" "${2}"
+}
+
 download_source
 extract_fonts
+build_font InterVariable.ttf AdwaitaSans-Regular.ttf
+build_font InterVariable-Italic.ttf AdwaitaSans-Italic.ttf
