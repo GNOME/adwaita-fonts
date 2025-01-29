@@ -11,7 +11,6 @@ stages:
   - release
 
 variables:
-  INTER_VERSION: 4.1
   TARBALL_ARTIFACT_PATH: ${CI_PROJECT_NAME}-${CI_COMMIT_TAG}.tar.xz
 
 sans:
@@ -20,8 +19,7 @@ sans:
     - dnf install -y --setopt=install_weak_deps=False python3-pip wget unzip make
   script:
     - pip install --root-user-action ignore opentype-feature-freezer
-    - wget https://github.com/rsms/inter/releases/download/v${INTER_VERSION}/Inter-${INTER_VERSION}.zip
-    - mv Inter-${INTER_VERSION}.zip sans
+    - sans/update-fonts.sh
     - make sans
   artifacts:
     paths:
