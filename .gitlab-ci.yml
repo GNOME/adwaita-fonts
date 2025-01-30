@@ -6,7 +6,6 @@ include:
       tarball-artifact-path: ${TARBALL_ARTIFACT_PATH}
 
 stages:
-  - build
   - release
 
 variables:
@@ -15,18 +14,10 @@ variables:
 
 image: quay.io/gnome_infrastructure/gnome-build-meta:core-nightly
 
-build:
-  stage: build
-  script:
-    - meson setup --prefix=/usr ${MESON_BUILD_DIR}
-    - meson install -C ${MESON_BUILD_DIR}
-  artifacts:
-    paths:
-      - ${MESON_BUILD_DIR}
-
 release:
   stage: release
   script:
+    - meson setup ${MESON_BUILD_DIR}
     - meson dist -C ${MESON_BUILD_DIR}
   artifacts:
     name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}
