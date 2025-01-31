@@ -2,6 +2,7 @@
 
 IOSEVKA_VERSION=32.4.0
 ARCHIVE=v${IOSEVKA_VERSION}.zip
+HASH=28485e903808e457cea18385e902402c483978f5fc1ff49035b7cef6b315c11f
 
 BASE_URL=https://github.com/be5invis/Iosevka/archive/refs/tags/
 
@@ -10,9 +11,16 @@ BUILD_DIR=Iosevka-${IOSEVKA_VERSION}
 cd $(dirname $0)
 set -e
 
+die() {
+  echo "$@" >&2
+  exit 1
+}
+
 download_source() {
   rm --force "${ARCHIVE}"
   wget "${BASE_URL}/${ARCHIVE}"
+  echo "${HASH} ${ARCHIVE}" | \
+    sha256sum --check --status || die "${ARCHIVE} has invalid checksum"
 }
 
 extract_source() {
