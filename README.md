@@ -2,15 +2,13 @@
 
 ![](preview.png)
 
-This repository contains the build system for Adwaita Sans,
-a variation of [Inter](https://rsms.me/inter/), and Adwaita Mono,
-[Iosevka](https://typeof.net/Iosevka/) customized to match Inter.
+This repository contains Adwaita Sans, a variation of [Inter](https://rsms.me/inter/),
+and Adwaita Mono, [Iosevka](https://typeof.net/Iosevka/) customized to match Inter.
 
 ## Usage
 
-You can download the latest release from
-[here](https://download.gnome.org/sources/adwaita-fonts/48/adwaita-fonts-48.0.tar.xz).
-Install it by opening the `.ttf` files and clicking on “Install”.
+You can download the latest release from [here](https://download.gnome.org/sources/adwaita-fonts/48/adwaita-fonts-48.2.tar.xz).
+Install it by opening the `.ttf` files in the “sans” and “mono” directories and clicking on “Install”.
 
 ### Setting the Fonts
 
