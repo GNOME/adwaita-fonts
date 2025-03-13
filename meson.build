@@ -1,7 +1,7 @@
 project(
   'adwaita-fonts',
   version: '48.2',
-  license: 'GPL-3.0-or-later',
+  license: 'OFL-1.1',
 )
 
 datadir = get_option('datadir')
