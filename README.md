@@ -7,7 +7,7 @@ and Adwaita Mono, [Iosevka](https://typeof.net/Iosevka/) customized to match Int
 
 ## Usage
 
-You can download the latest release from [here](https://download.gnome.org/sources/adwaita-fonts/48/adwaita-fonts-48.2.tar.xz).
+You can download the latest release from [here](https://download.gnome.org/sources/adwaita-fonts/49/adwaita-fonts-49.0.tar.xz).
 Install it by opening the `.ttf` files in the “sans” and “mono” directories and clicking on “Install”.
 
 ### Setting the Fonts
