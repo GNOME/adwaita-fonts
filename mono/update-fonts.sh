@@ -1,8 +1,8 @@
 #!/bin/sh
 
-IOSEVKA_VERSION=33.2.5
+IOSEVKA_VERSION=34.1.0
 ARCHIVE=v${IOSEVKA_VERSION}.zip
-HASH=2e22d6740fe032da68a72fc2587498d9b7e15f3950f4d720ece82dbab4c4d095
+HASH=88c8e6bdaf258225902968a2984b38db81c16135b7a1c4b7c8c53dae8bcfa79c
 
 BASE_URL=https://github.com/be5invis/Iosevka/archive/refs/tags/
 
