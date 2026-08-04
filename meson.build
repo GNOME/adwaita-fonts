@@ -1,6 +1,6 @@
 project(
   'adwaita-fonts',
-  version: '50.0',
+  version: '51.0',
   license: 'OFL-1.1',
 )
 
